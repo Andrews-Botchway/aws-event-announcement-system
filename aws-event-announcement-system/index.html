@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Announcements</title>
+
+  <!-- Google Fonts for clean typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===============================
+       🌈 Modern Event Portal — 2025
+       =============================== */
+    :root {
+      --bg-color: #f5f7fb;
+      --primary-color: #4a5fc1;
+      --accent-color: #7a8cff;
+      --text-color: #2d2f38;
+      --muted-color: #6b7280;
+      --card-bg: #fff;
+      --radius: 12px;
+      --shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+      --transition: 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 900px;
+    }
+
+    /* ===== Header ===== */
+    header {
+      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+      color: #fff;
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 2.5rem;
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      top: -40%;
+      left: -30%;
+      width: 160%;
+      height: 180%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent 70%);
+      transform: rotate(10deg);
+    }
+
+    header h1 {
+      font-size: 2.3rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.95;
+      margin-bottom: 1.5rem;
+    }
+
+    header button {
+      background: #fff;
+      color: var(--primary-color);
+      border: none;
+      padding: 0.8rem 1.6rem;
+      border-radius: 30px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+    }
+
+    header button:hover {
+      background: var(--primary-color);
+      color: #fff;
+      transform: translateY(-3px);
+    }
+
+    /* ===== Events Section ===== */
+    #events-container {
+      margin-bottom: 2rem;
+    }
+
+    #events-container h2 {
+      text-align: center;
+      color: var(--primary-color);
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    #events-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.5rem;
+      list-style: none;
+      padding: 0;
+    }
+
+    #events-list li {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      backdrop-filter: blur(10px);
+    }
+
+    #events-list li:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    #events-list strong {
+      display: block;
+      font-size: 1.25rem;
+      color: var(--primary-color);
+      margin-bottom: 0.25rem;
+    }
+
+    #events-list span {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--muted-color);
+      margin-bottom: 0.75rem;
+    }
+
+    #events-list p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    #events-container button {
+      display: block;
+      margin: 2rem auto 0;
+      background: var(--accent-color);
+      color: #fff;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: var(--transition);
+      font-weight: 600;
+    }
+
+    #events-container button:hover {
+      background: var(--primary-color);
+      transform: translateY(-2px);
+    }
+
+    /* ===== Create Event Form ===== */
+    #create-event-form {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      display: none;
+      animation: fadeIn 0.4s ease;
+    }
+
+    #create-event-form h3 {
+      color: var(--primary-color);
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+    }
+
+    #create-event-form label {
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-top: 1rem;
+      display: block;
+    }
+
+    #create-event-form input,
+    #create-event-form textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 0.5rem;
+      border-radius: var(--radius);
+      border: 1px solid #ddd;
+      font-size: 1rem;
+      transition: border var(--transition);
+    }
+
+    #create-event-form input:focus,
+    #create-event-form textarea:focus {
+      border-color: var(--accent-color);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(122, 140, 255, 0.2);
+    }
+
+    #create-event-form button {
+      background: var(--primary-color);
+      color: #fff;
+      padding: 0.8rem 1.6rem;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      margin-top: 1.5rem;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    #create-event-form button:hover {
+      background: var(--accent-color);
+      transform: translateY(-2px);
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted-color);
+      margin-top: 3rem;
+      font-size: 0.95rem;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.9rem;
+      }
+
+      #events-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>Event Announcements</h1>
+      <p>Stay tuned for the latest updates and exciting new events!</p>
+      <button onclick="subscribeToEvents()">🔔 Subscribe</button>
+    </header>
+
+    <section id="events-container">
+      <h2>Latest Events</h2>
+      <ul id="events-list"></ul>
+      <button onclick="showCreateEventForm()">➕ Create New Event</button>
+    </section>
+
+    <section id="create-event-form">
+      <h3>Create New Event</h3>
+      <form onsubmit="submitNewEvent(event)">
+        <label for="event-title">Event Title</label>
+        <input type="text" id="event-title" required>
+
+        <label for="event-date">Event Date</label>
+        <input type="date" id="event-date" required>
+
+        <label for="event-description">Event Description</label>
+        <textarea id="event-description" required></textarea>
+
+        <button type="submit">🚀 Publish Event</button>
+      </form>
+    </section>
+
+    <footer>
+      <p>Built for 2025 • Stay connected and never miss an update ✨</p>
+    </footer>
+  </div>
+
+  <script>
+    // Load and render events
+    async function loadEvents() {
+      try {
+        const response = await fetch('events.json');
+        const events = await response.json();
+        displayEvents(events);
+      } catch (err) {
+        console.error("Error loading events:", err);
+      }
+    }
+
+    // Display events dynamically
+    function displayEvents(events) {
+      const eventsList = document.getElementById('events-list');
+      eventsList.innerHTML = '';
+      events.forEach(evt => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+          <strong>${evt.title}</strong>
+          <span>📅 ${new Date(evt.date).toLocaleDateString()}</span>
+          <p>${evt.description}</p>
+        `;
+        eventsList.appendChild(li);
+      });
+    }
+
+    // Toggle form visibility
+    function showCreateEventForm() {
+      const form = document.getElementById("create-event-form");
+      form.style.display = form.style.display === "none" ? "block" : "none";
+      form.scrollIntoView({ behavior: "smooth" });
+    }
+
+    // Submit new event
+    async function submitNewEvent(e) {
+      e.preventDefault();
+      const title = document.getElementById("event-title").value.trim();
+      const date = document.getElementById("event-date").value;
+      const description = document.getElementById("event-description").value.trim();
+
+      const newEvent = { title, date, description };
+
+      try {
+        const response = await fetch('<YOUR_CREATE_EVENT_API_ENDPOINT>', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(newEvent)
+        });
+
+        if (response.ok) {
+          alert("🎉 Event created successfully!");
+          document.querySelector("form").reset();
+          loadEvents();
+        } else {
+          alert("⚠️ Failed to create event.");
+        }
+      } catch (error) {
+        console.error("Error:", error);
+        alert("❌ Something went wrong. Try again.");
+      }
+    }
+
+    // Subscribe to events
+    async function subscribeToEvents() {
+      const email = prompt("Enter your email to subscribe:");
+      if (!email) return alert("Email is required!");
+
+      try {
+        const response = await fetch('<YOUR_SUBSCRIBE_API_ENDPOINT>', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email })
+        });
+        const result = await response.json();
+        alert(result.message || "✅ Subscription successful!");
+      } catch (error) {
+        console.error("Error subscribing:", error);
+        alert("❌ Subscription failed. Try again later.");
+      }
+    }
+
+    // Init
+    window.onload = loadEvents;
+  </script>
+</body>
+
+</html>

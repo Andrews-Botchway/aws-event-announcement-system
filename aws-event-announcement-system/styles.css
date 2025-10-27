@@ -1,0 +1,164 @@
+/* ===============================
+   🌐 Modern Event Page — 2025 Edition
+   =============================== */
+
+:root {
+  --color-bg: #eef2f7;
+  --color-gradient: linear-gradient(135deg, #90caf9, #b39ddb);
+  --color-card-bg: rgba(255, 255, 255, 0.65);
+  --color-primary: #2b3a67;
+  --color-accent: #6c63ff;
+  --color-text: #2c2c34;
+  --radius: 1rem;
+  --shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  --transition: 0.3s ease;
+  font-family: 'Inter', 'Poppins', sans-serif;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--color-bg);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem;
+  color: var(--color-text);
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 900px;
+}
+
+/* Header */
+header {
+  background: var(--color-gradient);
+  color: white;
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+header::after {
+  content: '';
+  position: absolute;
+  top: -30%;
+  left: -20%;
+  width: 140%;
+  height: 160%;
+  background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+  transform: rotate(15deg);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+header p {
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+  opacity: 0.95;
+}
+
+header button {
+  margin-top: 1.2rem;
+  background: #fff;
+  color: var(--color-accent);
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition);
+  box-shadow: 0 4px 10px rgba(108, 99, 255, 0.25);
+}
+
+header button:hover {
+  transform: translateY(-3px);
+  background: var(--color-accent);
+  color: #fff;
+}
+
+/* Events Section */
+#events-container h2 {
+  text-align: center;
+  color: var(--color-primary);
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+/* Event Cards */
+#events-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 1.5rem;
+}
+
+#events-list li {
+  list-style: none;
+  background: var(--color-card-bg);
+  backdrop-filter: blur(12px);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+#events-list li:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+#events-list h3 {
+  font-size: 1.3rem;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+#events-list p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 0.5rem;
+}
+
+#events-list span {
+  display: inline-block;
+  font-size: 0.9rem;
+  color: var(--color-accent);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: 3rem;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  #events-list {
+    grid-template-columns: 1fr;
+  }
+}
