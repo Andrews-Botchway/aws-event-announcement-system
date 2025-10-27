@@ -1,0 +1,17 @@
+[
+  {
+    "title": "AI Cloud Summit 2025",
+    "date": "2025-11-10",
+    "description": "Explore the future of AI and cloud infrastructure with live demos, talks, and networking sessions."
+  },
+  {
+    "title": "Next.js & React Masterclass",
+    "date": "2025-11-25",
+    "description": "Build blazing-fast web apps with Next.js 15, React 19, and modern TypeScript workflows."
+  },
+  {
+    "title": "Serverless Jam",
+    "date": "2025-12-05",
+    "description": "Collaborate, code, and deploy in this interactive serverless hackathon powered by AWS Lambda."
+  }
+]
