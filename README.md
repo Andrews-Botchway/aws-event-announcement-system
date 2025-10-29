@@ -52,7 +52,7 @@ This project demonstrates end-to-end cloud integration — from static web hosti
 
 ---
 
-##  Steps to Deploy
+## 👩‍💻 Steps to Deploy
 1. **Set up S3 bucket** and enable static website hosting.  
 2. **Upload frontend files** (`index.html`, `style.css`, `events.json`).  
 3. **Create SNS topic** for event notifications.  
@@ -66,7 +66,7 @@ This project demonstrates end-to-end cloud integration — from static web hosti
 
 ---
 
-##  Future Enhancements
+## 💡 Future Enhancements
 - Add **DynamoDB** for persistent event storage.  
 - Integrate **Amazon Cognito** for secure user authentication.  
 - Implement **CI/CD pipeline** with AWS CodePipeline.  
@@ -74,7 +74,7 @@ This project demonstrates end-to-end cloud integration — from static web hosti
 
 ---
 
-##  Key Learnings
+## 🧠 Key Learnings
 - Designing **event-driven serverless architectures**.  
 - Using **SNS + Lambda** for automation workflows.  
 - Managing secure, scalable APIs with **API Gateway**.  
