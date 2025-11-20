@@ -80,4 +80,3 @@ This project demonstrates end-to-end cloud integration — from static web hosti
 - Managing secure, scalable APIs with **API Gateway**.  
 - Applying **IAM best practices** for resource access.
 
----
